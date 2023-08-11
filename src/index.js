@@ -2,6 +2,12 @@ import './style.css';
 
 controllProjectForm();
 
+const data = [];
+
+function Project(value) {
+  return { value, todos: [] };
+}
+
 function controllProjectForm() {
   //This function is all about the project form
 
@@ -49,12 +55,28 @@ function controllProjectForm() {
       return;
     } else {
       //if form is filled
-      //Build the project component
+
+      //1. push new project in data array
+      //1-1 structure project object
+      const projectObj = Project(input.value);
+      //1-2 push it into data
+      data.push(projectObj);
+
+      //2.Build the project component
       const li = document.createElement('li');
       li.textContent = input.value;
       container.append(li);
 
-      li.addEventListener('click', controllTodoForm);
+      li.addEventListener('click', () => {
+        //display todo section(main) on the screen
+        //1. display the todo (stored one)
+        //check if todo is stored
+        //if todo is stored -> display the todo
+        //if todo is empty
+
+        //2. display the todo-add-btn
+        controllTodoForm();
+      });
 
       projectForm.classList.remove('show');
       return;
@@ -68,6 +90,12 @@ function controllProjectForm() {
 }
 
 function controllTodoForm(e) {
+  //project click -> display the stored todos
+
+  //1. display the todos
+
+  //2. display the todo-form
+
   const todoForm = document.querySelector('.todo-form');
   console.log('Show the form to make a todo');
   todoForm.classList.add('show');

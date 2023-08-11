@@ -21,12 +21,16 @@ function controllProjectForm() {
   //2. click add btn
   addBtn.addEventListener('click', () => {
     addNewProject();
+    //hide the form after finish
+    //clean form
+    cleanFormInput();
   });
 
   //3. click cancel btn
-  //hide form --later do this in css (we will toggle class)
   cancelBtn.addEventListener('click', () => {
-    cleanFormInput(); //hide the form after finish
+    //clean form
+    cleanFormInput();
+    //hide the form --later do this in css (we will toggle class)
     projectForm.style = 'display: none';
   });
 
@@ -34,6 +38,9 @@ function controllProjectForm() {
   projectForm.addEventListener('submit', (e) => {
     e.preventDefault();
     addNewProject();
+    //clean form
+    cleanFormInput();
+    //hide the form after finish
   });
 
   function addNewProject() {
@@ -44,12 +51,11 @@ function controllProjectForm() {
       return;
     } else {
       //if form is filled
-      //show the content on the screen first
-      const h1Test = document.createElement('h1');
-      h1Test.textContent = input.value;
-      container.append(h1Test);
-      cleanFormInput();
-      //hide the form after finish
+      //Build the project component
+      const li = document.createElement('li');
+      li.textContent = input.value;
+      container.append(li);
+
       projectForm.style = 'display: none';
       return;
     }

@@ -1,3 +1,5 @@
+import './style.css';
+
 const showFormbtn = document.querySelector('.project-btn');
 const projectForm = document.querySelector('.project-form');
 const container = document.querySelector('.container');

@@ -11,13 +11,17 @@
     <div class="project">
       <h2>Projects</h2>
       <button class="project-btn" type="button">New project</button>
-      <div class="container"></div>
-      <!-- form -->
-      <form action="" class="project-form" style="display: none">
+      <ul class="projects"></ul>
+      <!-- project form -->
+      <form action="" class="project-form">
         <label for="project-name">Project name : </label>
         <input type="text" id="project-name" autocomplete="off" />
         <button type="button" class="add-btn">Add</button>
         <button type="button" class="cancel-btn">Cancel</button>
+      </form>
+      <!-- todo form -->
+      <form class="todo-form">
+        <input type="text" placeholder="test" />
       </form>
     </div>
     <script src="main.js"></script>

@@ -1,3 +1,11 @@
-* {
-  color: red;
+.project-form {
+  display: none;
+}
+.todo-form {
+  display: none;
+}
+
+/* toggle style */
+.show {
+  display: block;
 }

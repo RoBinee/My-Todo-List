@@ -1,3 +1,11 @@
+*,
+::before,
+::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
 .project-form {
   display: none;
 }
@@ -8,4 +16,25 @@
 /* toggle style */
 .show {
   display: block;
+}
+
+/* temporary */
+#content {
+  border: 2px solid black;
+  display: grid;
+  grid-template-columns: 1fr 7fr;
+  grid-template-rows: 1fr 10fr;
+  height: 100vh;
+}
+header {
+  background: pink;
+  grid-column: 1 / -1;
+}
+aside {
+  background: skyblue;
+  grid-column: 0 / 1;
+}
+main {
+  background: beige;
+  grid-column: 2 / -1;
 }

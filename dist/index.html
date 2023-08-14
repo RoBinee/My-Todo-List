@@ -7,23 +7,30 @@
     <title>Test</title>
   </head>
   <body>
-    <!-- hardcode for project section -->
-    <div class="project">
-      <h2>Projects</h2>
-      <button class="project-btn" type="button">New project</button>
-      <ul class="projects"></ul>
-      <!-- project form -->
-      <form action="" class="project-form">
-        <label for="project-name">Project name : </label>
-        <input type="text" id="project-name" autocomplete="off" />
-        <button type="button" class="add-btn">Add</button>
-        <button type="button" class="cancel-btn">Cancel</button>
-      </form>
-      <!-- todo form -->
-      <form class="todo-form">
-        <input type="text" placeholder="test" />
-      </form>
+    <div id="content">
+      <header><h1>Project - header</h1></header>
+      <!-- sidebar -->
+      <aside>
+        <h1>Aside - projects</h1>
+        <button class="project-btn" type="button">New project</button>
+        <ul class="projects"></ul>
+        <!-- project form -->
+        <form action="" class="project-form">
+          <label for="project-name">Project name : </label>
+          <input type="text" id="project-name" autocomplete="off" />
+          <button type="button" class="add-btn">Add</button>
+          <button type="button" class="cancel-btn">Cancel</button>
+        </form>
+      </aside>
+      <main>
+        <h1>main</h1>
+      </main>
     </div>
+    <!-- hardcode for project section -->
+    <!-- todo form -->
+    <!-- <form class="todo-form">
+        <input type="text" placeholder="test" />
+      </form> -->
     <script src="main.js"></script>
   </body>
 </html>

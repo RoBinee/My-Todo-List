@@ -1,8 +1,5 @@
-const data = [];
-
-function Project(value) {
-  return { project: value, todos: [] };
-}
+import { nanoid } from 'nanoid';
+import { addProjectToData, removeProjectFromData } from './data.js';
 
 function controllProject() {
   const container = document.querySelector('.projects');
@@ -14,16 +11,13 @@ function controllProject() {
       return;
     } else {
       //if form is filled
-
       //1. push new project in data array
-      //1-1 structure project object
-      const projectObj = Project(inputValue);
-      //1-2 push it into data
-      data.push(projectObj);
-      console.log(data);
+      const projectId = nanoid();
+      addProjectToData(projectId, inputValue);
 
       //2.Build the project component
-      container.append(createProjectElement(inputValue));
+      const projectElement = createProjectElement(projectId, inputValue);
+      container.append(projectElement);
 
       return;
     }
@@ -31,15 +25,18 @@ function controllProject() {
 
   function removeProject(e) {
     //remove eventListener
-    const li = e.currentTarget;
+    const project = e.currentTarget;
+    const projectId = project.id;
     //remove from data
+    removeProjectFromData(projectId);
 
     //remove from the screen
-    container.removeChild(li);
+    container.removeChild(project);
   }
 
-  function createProjectElement(value) {
+  function createProjectElement(projectId, value) {
     const li = document.createElement('li');
+    li.setAttribute('id', projectId);
     li.textContent = value;
     const removeBtn = document.createElement('button');
     removeBtn.classList = 'remove-btn';

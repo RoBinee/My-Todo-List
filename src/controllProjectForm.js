@@ -1,19 +1,20 @@
 const data = [];
 
 function Project(value) {
-  return { value, todos: [] };
+  return { project: value, todos: [] };
 }
 
+//change the function name to controllProject
 function controllProjectForm() {
   //This function is all about the project form
 
   //**variables */
   const showFormbtn = document.querySelector('.project-btn');
   const projectForm = document.querySelector('.project-form');
-  const container = document.querySelector('.projects');
+  const input = projectForm.querySelector('#project-name');
   const addBtn = projectForm.querySelector('.add-btn');
   const cancelBtn = projectForm.querySelector('.cancel-btn');
-  const input = projectForm.querySelector('#project-name');
+  const container = document.querySelector('.projects');
 
   //**EventListener */
   showFormbtn.addEventListener('click', () => {
@@ -59,19 +60,7 @@ function controllProjectForm() {
       data.push(projectObj);
 
       //2.Build the project component
-      const li = document.createElement('li');
-      li.textContent = input.value;
-      container.append(li);
-
-      li.addEventListener('click', () => {
-        console.log('hi');
-        //display todo section(main) on the screen
-        //1. display the todo (stored one)
-        //check if todo is stored
-        //if todo is stored -> display the todo
-        //if todo is empty
-        //2. display the todo-add-btn
-      });
+      container.append(createProjectElement(input.value));
 
       projectForm.classList.remove('show');
       return;
@@ -82,6 +71,22 @@ function controllProjectForm() {
     //clean the input
     input.value = '';
   }
+}
+
+function createProjectElement(value) {
+  const li = document.createElement('li');
+  li.textContent = value;
+  const removeBtn = document.createElement('button');
+  removeBtn.textContent = 'X';
+  li.append(removeBtn);
+
+  li.addEventListener('click', () => {
+    // test code : display todo
+    const main = document.querySelector('main');
+    main.innerHTML = '<h1>display todo</h1>';
+  });
+
+  return li;
 }
 
 export default controllProjectForm;

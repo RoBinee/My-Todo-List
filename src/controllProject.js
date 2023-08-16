@@ -1,26 +1,21 @@
 import { nanoid } from 'nanoid';
 import { addProjectToData, removeProjectFromData } from './data.js';
 
-function controllProject() {
+const controllProject = (() => {
   const container = document.querySelector('.projects');
 
-  function addNewProject(inputValue) {
-    if (inputValue.length === 0) {
-      //if form is empty
-      alert('Please write down a new project name');
-      return;
-    } else {
-      //if form is filled
+  function addNewProject(inputValue, projectId) {
+    if (!projectId) {
+      //this data is a new one
+      //make a new id and add to data arr
       //1. push new project in data array
       const projectId = nanoid();
       addProjectToData(projectId, inputValue);
-
-      //2.Build the project component
-      const projectElement = createProjectElement(projectId, inputValue);
-      container.append(projectElement);
-
-      return;
     }
+    //2.Build the project component
+    const projectElement = createProjectElement(projectId, inputValue);
+    //3. insert it to dom
+    container.append(projectElement);
   }
 
   function removeProject(e) {
@@ -32,6 +27,8 @@ function controllProject() {
 
     //remove from the screen
     container.removeChild(project);
+
+    //remove showing todos
   }
 
   function createProjectElement(projectId, value) {
@@ -57,7 +54,7 @@ function controllProject() {
     return li;
   }
 
-  return { addNewProject };
-}
+  return { addNewProject, createProjectElement };
+})();
 
 export default controllProject;

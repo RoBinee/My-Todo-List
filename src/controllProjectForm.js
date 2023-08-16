@@ -16,7 +16,12 @@ function controllProjectForm() {
 
   //2. click add btn
   addBtn.addEventListener('click', () => {
-    controllProject().addNewProject(input.value);
+    if (input.value.length === 0) {
+      //if form is empty
+      alert('Please write down a new project name');
+      return;
+    }
+    controllProject.addNewProject(input.value);
     //hide form
     displayForm(false);
     //clean form
@@ -26,7 +31,12 @@ function controllProjectForm() {
   //3. Press enter to submit the form instead of clicking add btn
   projectForm.addEventListener('submit', (e) => {
     e.preventDefault();
-    controllProject().addNewProject(input.value);
+    if (input.value.length === 0) {
+      //if form is empty
+      alert('Please write down a new project name');
+      return;
+    }
+    controllProject.addNewProject(input.value);
     //hideform
     displayForm(false);
     //clean form

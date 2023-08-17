@@ -21,7 +21,7 @@ function controllProjectForm() {
       alert('Please write down a new project name');
       return;
     }
-    controllProject.addNewProject(input.value);
+    controllProject().addNewProject(input.value);
     //hide form
     displayForm(false);
     //clean form
@@ -36,7 +36,7 @@ function controllProjectForm() {
       alert('Please write down a new project name');
       return;
     }
-    controllProject.addNewProject(input.value);
+    controllProject().addNewProject(input.value);
     //hideform
     displayForm(false);
     //clean form

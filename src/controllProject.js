@@ -1,7 +1,7 @@
 import { nanoid } from 'nanoid';
 import { addProjectToData, removeProjectFromData } from './data.js';
 
-const controllProject = (() => {
+const controllProject = () => {
   const container = document.querySelector('.projects');
   const main = document.querySelector('main');
 
@@ -58,6 +58,6 @@ const controllProject = (() => {
   }
 
   return { addNewProject, createProjectElement };
-})();
+};
 
 export default controllProject;

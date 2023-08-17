@@ -3,6 +3,7 @@ import { addProjectToData, removeProjectFromData } from './data.js';
 
 const controllProject = (() => {
   const container = document.querySelector('.projects');
+  const main = document.querySelector('main');
 
   function addNewProject(inputValue, projectId) {
     if (!projectId) {
@@ -27,8 +28,8 @@ const controllProject = (() => {
 
     //remove from the screen
     container.removeChild(project);
-
     //remove showing todos
+    main.innerHTML = ``;
   }
 
   function createProjectElement(projectId, value) {
@@ -46,8 +47,10 @@ const controllProject = (() => {
       if (e.target === removeBtn) {
         removeProject(e);
       } else {
-        const main = document.querySelector('main');
-        main.innerHTML = '<h1>display todo</h1>';
+        //display todo list
+        main.innerHTML = `<h2>Project name: ${value}</h2>
+          <button>Add to-do</button>
+        `;
       }
     });
 

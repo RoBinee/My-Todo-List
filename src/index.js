@@ -3,6 +3,7 @@ import controllProjectForm from './controllProjectForm.js';
 import { data } from './data.js';
 import controllProject from './controllProject.js';
 
+controllProjectForm();
 if (data.length != 0) {
   //display default project
   data.forEach((item) => {
@@ -11,4 +12,4 @@ if (data.length != 0) {
   });
 }
 
-controllProjectForm();
+//display none -> null?
